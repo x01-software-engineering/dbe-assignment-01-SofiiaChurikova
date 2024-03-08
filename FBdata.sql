@@ -80,6 +80,13 @@ CREATE TABLE standings (
     FOREIGN KEY (id) REFERENCES teams(id),
     FOREIGN KEY (match_day) REFERENCES match_day(id)
 );
+CREATE TABLE match_goal (
+    match_id INT,
+    goal_id INT,
+    PRIMARY KEY (match_id, goal_id),
+    FOREIGN KEY (match_id) REFERENCES matches(id),
+    FOREIGN KEY (goal_id) REFERENCES goals(id)
+);
 INSERT INTO teams(name, city, stadium, manager_name) VALUES
 ('Liverpool','Liverpool', 'Anfield', 'Jürgen Klopp'),
 ('Manchester City', 'Manchester', 'Etihad Stadium', 'Pep Guardiola'),
@@ -308,6 +315,12 @@ INSERT INTO standings(id, points, played, won, drawn, lost, goals_for, goals_aga
 (4, 4, 3, 1, 1, 1, 5, 5, 6),
 (5, 1, 3, 0, 1, 2, 1, 7, 6),
 (6, 1, 3, 0, 2, 0, 1, 8, 6);
+
+INSERT INTO match_goal (match_id, goal_id)
+SELECT m.id, g.id
+FROM matches m
+JOIN goals g ON m.id = g.game;
+
 
 SELECT teams.name AS team, ROUND(AVG(YEAR(CURRENT_DATE) - YEAR((players.birthday))), 1) AS avg_age
 FROM players
