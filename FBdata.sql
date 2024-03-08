@@ -387,3 +387,27 @@ WHERE nationality = "Colombian";
 
 SELECT * FROM clone_players
 WHERE nationality = "Colombian";
+
+INSERT INTO players (team, name, birthday, nationality, position, number) VALUES
+(6, 'Virgil van Dijk', '1991-07-08', 'Dutch', 'Defender', 4),
+(4, 'Virgil van Dijk', '1991-07-08', 'Dutch', 'Defender', 4);
+
+INSERT INTO goals(game, player, team, goal_time) VALUES
+(12, 1, 6, '00:10:00'),
+(12, 1, 6, '00:18:00'),
+(3, 1, 4, '00:20:00');
+
+INSERT INTO team_player (team_id, player_id) VALUES
+(6, 1),
+(4, 1);
+
+SELECT players.name AS name, teams.name AS team, matches.name AS match_name, seasons.name AS season, leagues.name AS league, COUNT(goals.id) AS total_goals
+FROM players
+JOIN goals ON players.id = goals.player
+JOIN matches ON goals.game = matches.id
+JOIN teams ON goals.team = teams.id
+JOIN match_day ON matches.match_day = match_day.id
+JOIN seasons ON match_day.season_id = seasons.id
+JOIN leagues ON match_day.league_id = leagues.id
+WHERE players.name = 'Virgil van Dijk'
+GROUP BY players.name, teams.name, matches.name, seasons.name, leagues.name;
