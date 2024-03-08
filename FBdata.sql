@@ -363,6 +363,13 @@ LEFT JOIN goals ON players.id = goals.player
 GROUP BY players.id, teams.id
 ORDER BY team;
 
+SELECT teams.name AS team_name, players.name AS player_name
+FROM teams
+JOIN team_player ON teams.id = team_player.team_id
+JOIN players ON team_player.player_id = players.id
+JOIN matches ON teams.id = matches.home_id OR teams.id = matches.away_id
+WHERE matches.id = 2;
+
 SELECT matches.name AS game, goals.goal_time AS goal_time, players.name AS player, teams.name AS team
 FROM matches
 JOIN match_goal ON matches.id = match_goal.match_id
@@ -380,5 +387,3 @@ WHERE nationality = "Colombian";
 
 SELECT * FROM clone_players
 WHERE nationality = "Colombian";
-
-
