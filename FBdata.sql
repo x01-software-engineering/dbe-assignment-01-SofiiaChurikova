@@ -354,3 +354,21 @@ FROM teams
 JOIN standings ON teams.id = standings.id
 GROUP BY teams.name, teams.city, teams.manager_name
 ORDER BY win DESC;
+
+SELECT players.name AS name, teams.name AS team, COUNT(goals.id) AS goals
+FROM players
+JOIN team_player ON players.id = team_player.player_id
+JOIN teams ON team_player.team_id = teams.id
+LEFT JOIN goals ON players.id = goals.player
+GROUP BY players.id, teams.id
+ORDER BY team;
+
+SELECT matches.name AS game, goals.goal_time AS goal_time, players.name AS player, teams.name AS team
+FROM matches
+JOIN match_goal ON matches.id = match_goal.match_id
+JOIN goals ON match_goal.goal_id = goals.id
+JOIN players ON goals.player = players.id
+JOIN teams ON players.team = teams.id;
+
+
+
