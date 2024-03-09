@@ -80,13 +80,6 @@ CREATE TABLE standings (
     FOREIGN KEY (id) REFERENCES teams(id),
     FOREIGN KEY (match_day) REFERENCES match_day(id)
 );
-CREATE TABLE match_goal (
-    match_id INT,
-    goal_id INT,
-    PRIMARY KEY (match_id, goal_id),
-    FOREIGN KEY (match_id) REFERENCES matches(id),
-    FOREIGN KEY (goal_id) REFERENCES goals(id)
-);
 INSERT INTO teams(name, city, stadium, manager_name) VALUES
 ('Liverpool','Liverpool', 'Anfield', 'Jürgen Klopp'),
 ('Manchester City', 'Manchester', 'Etihad Stadium', 'Pep Guardiola'),
@@ -316,11 +309,6 @@ INSERT INTO standings(id, points, played, won, drawn, lost, goals_for, goals_aga
 (5, 1, 3, 0, 1, 2, 1, 7, 6),
 (6, 1, 3, 0, 2, 0, 1, 8, 6);
 
-INSERT INTO match_goal (match_id, goal_id)
-SELECT m.id, g.id
-FROM matches m
-JOIN goals g ON m.id = g.game;
-
 
 SELECT teams.name AS team, ROUND(AVG(YEAR(CURRENT_DATE) - YEAR((players.birthday))), 1) AS avg_age
 FROM players
@@ -370,13 +358,6 @@ JOIN players ON team_player.player_id = players.id
 JOIN matches ON teams.id = matches.home_id OR teams.id = matches.away_id
 WHERE matches.id = 2;
 
-SELECT matches.name AS game, goals.goal_time AS goal_time, players.name AS player, teams.name AS team
-FROM matches
-JOIN match_goal ON matches.id = match_goal.match_id
-JOIN goals ON match_goal.goal_id = goals.id
-JOIN players ON goals.player = players.id
-JOIN teams ON players.team = teams.id;
-
 
 CREATE TABLE clone_players LIKE players;
 INSERT INTO clone_players SELECT * FROM players;
@@ -386,4 +367,10 @@ SELECT * FROM players
 WHERE nationality = "Colombian";
 
 SELECT * FROM clone_players
+WHERE nationality = "Colombian";
+
+EXPLAIN SELECT * FROM players
+WHERE nationality = "Colombian";
+
+EXPLAIN SELECT * FROM clone_players
 WHERE nationality = "Colombian";
