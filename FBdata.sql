@@ -368,9 +368,3 @@ WHERE nationality = "Colombian";
 
 SELECT * FROM clone_players
 WHERE nationality = "Colombian";
-
-EXPLAIN SELECT * FROM players
-WHERE nationality = "Colombian";
-
-EXPLAIN SELECT * FROM clone_players
-WHERE nationality = "Colombian";
