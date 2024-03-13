@@ -9,7 +9,6 @@ CREATE TABLE teams(
 );
 CREATE TABLE players(
     id INT AUTO_INCREMENT PRIMARY KEY,
-    team INT NOT NULL,
     name VARCHAR(50) NOT NULL,
     birthday DATE NOT NULL,
     nationality VARCHAR(20) NOT NULL,
