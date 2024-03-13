@@ -78,7 +78,9 @@ INSERT INTO players(team, name, birthday, nationality, position, number) VALUES
 (6, 'Emiliano Marcondes', '1995-03-17', 'Danish', 'Midfielder', 22),
 (6, 'Gavin Kilkenny', '1999-11-08', 'Irish', 'Midfielder', 42),
 (6, 'Zeno Ibsen Rossi', '2001-05-10', 'Norwegian', 'Midfielder', 36),
-(6, 'Jordan Zemura', '2000-11-14', 'Zimbabwean', 'Defender', 17);
+(6, 'Jordan Zemura', '2000-11-14', 'Zimbabwean', 'Defender', 17),
+(6, 'Virgil van Dijk', '1991-07-08', 'Dutch', 'Defender', 4),
+(4, 'Virgil van Dijk', '1991-07-08', 'Dutch', 'Defender', 4);
 
 INSERT INTO team_player (team_id, player_id) VALUES
 (1, 1), 
@@ -152,7 +154,9 @@ INSERT INTO team_player (team_id, player_id) VALUES
 (6, 69), 
 (6, 70), 
 (6, 71), 
-(6, 72);
+(6, 72),
+(6, 1),
+(4, 1);
 
 INSERT INTO seasons (name) VALUES
 ('2023-2024'),
@@ -205,7 +209,10 @@ INSERT INTO goals(game, player, team, goal_time) VALUES
 (5, 2, 1, '00:25:00'),
 (5, 9, 1, '00:35:00'),
 (6, 49, 5, '00:10:00'),
-(6, 50, 6, '00:06:00');
+(6, 50, 6, '00:06:00'),
+(12, 1, 6, '00:10:00'),
+(12, 1, 6, '00:18:00'),
+(3, 1, 4, '00:20:00');
 
 INSERT INTO standings(id, points, played, won, drawn, lost, goals_for, goals_against, match_day) VALUES
 (1, 9, 3, 3, 0, 0, 10, 3, 1),
