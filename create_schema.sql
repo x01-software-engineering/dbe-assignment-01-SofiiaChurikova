@@ -13,8 +13,7 @@ CREATE TABLE players(
     birthday DATE NOT NULL,
     nationality VARCHAR(20) NOT NULL,
     position VARCHAR(20) NOT NULL,
-    number INT NOT NULL,
-    FOREIGN KEY (team) REFERENCES teams(id)
+    number INT NOT NULL
 );
 CREATE TABLE team_player (
     team_id INT,
