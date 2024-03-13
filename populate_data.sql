@@ -78,9 +78,7 @@ INSERT INTO players(name, birthday, nationality, position, number) VALUES
 ('Emiliano Marcondes', '1995-03-17', 'Danish', 'Midfielder', 22),
 ('Gavin Kilkenny', '1999-11-08', 'Irish', 'Midfielder', 42),
 ('Zeno Ibsen Rossi', '2001-05-10', 'Norwegian', 'Midfielder', 36),
-('Jordan Zemura', '2000-11-14', 'Zimbabwean', 'Defender', 17),
-('Virgil van Dijk', '1991-07-08', 'Dutch', 'Defender', 4),
-('Virgil van Dijk', '1991-07-08', 'Dutch', 'Defender', 4);
+('Jordan Zemura', '2000-11-14', 'Zimbabwean', 'Defender', 17);
 
 INSERT INTO team_player (team_id, player_id) VALUES
 (1, 1), 
