@@ -17,6 +17,6 @@ CALL update_team_manager_sproc(1, 'New manager');
 SELECT * FROM teams;
 
 
--- It's update player's position to 'Substitute' if player's age > 38
+-- It's update player's position to 'Substitute' if player's age > 36
 CALL update_player_position_sproc();
 SELECT * FROM players;
