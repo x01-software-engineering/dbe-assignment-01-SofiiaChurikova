@@ -82,11 +82,14 @@ BEGIN
 
     UPDATE players
     SET position = 'Substitute'
-    WHERE NOT EXISTS (
-        SELECT *
-        FROM (SELECT * FROM players) AS p
-        WHERE YEAR(CURRENT_DATE()) - YEAR(p.birthday) < 38
-    );
+    WHERE id IN (
+    SELECT id
+    FROM (
+        SELECT *, YEAR(CURRENT_DATE()) - YEAR(birthday) AS age 
+        FROM players
+    ) AS p
+    WHERE p.age > 36
+);
 
     COMMIT;
 END//
