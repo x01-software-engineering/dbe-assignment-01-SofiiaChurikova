@@ -2,7 +2,7 @@
 -- This procedure provides full information based on given team ID
 DELIMITER //
 
-CREATE PROCEDURE GetPlayersByTeamId(IN teamId INT)
+CREATE PROCEDURE get_players_by_team_id(IN teamId INT)
 BEGIN
     SELECT p.name, p.birthday, p.nationality, p.position, p.number
     FROM players p
@@ -11,32 +11,32 @@ BEGIN
 END//
 
 DELIMITER ;
-CALL GetPlayersByTeamId(2);
+CALL get_players_by_team_id(2);
 
 
 -- procedure with IN, OUT
 -- This procedure provides full information about goals based on given player
 DELIMITER //
 
-CREATE PROCEDURE GetPlayerGoals(
-    IN playerName VARCHAR(50),
-    OUT totalGoals INT
+CREATE PROCEDURE get_player_goals(
+    IN player_name VARCHAR(50),
+    OUT total_goals INT
 )
 BEGIN
-    SELECT COUNT(*) INTO totalGoals
+    SELECT COUNT(*) INTO total_goals
     FROM goals g
     JOIN players p ON g.player = p.id
-    WHERE p.name = playerName;
+    WHERE p.name = player_name;
 END //
 
 DELIMITER ;
-CALL GetPlayerGoals('Virgil van Dijk', @totalGoals);
-SELECT @totalGoals;
+CALL get_player_goals('Virgil van Dijk', @total_goals);
+SELECT @total_goals;
 
 -- procedure with INOUT 
 -- This procedure updates player's number
 DELIMITER //
-CREATE PROCEDURE UpdatePlayerNumber(
+CREATE PROCEDURE update_player_number(
     INOUT player_id INT,
     IN new_number INT
 )
@@ -48,14 +48,14 @@ END//
 DELIMITER ;
 
 SET @player_id = 43;
-CALL UpdatePlayerNumber(@player_id, 15);
+CALL update_player_number(@player_id, 15);
 
 
 -- procedure with transaction
 -- It's update manager's name if team didn't score a goal, otherwise changes are cancelled 
 DELIMITER //
 
-CREATE PROCEDURE UpdateTeamManager(IN team_id INT, IN new_manager_name VARCHAR(255))
+CREATE PROCEDURE update_team_nanager(IN team_id INT, IN new_manager_name VARCHAR(255))
 BEGIN
     DECLARE total_goals INT;
 
@@ -76,14 +76,14 @@ END//
 
 DELIMITER ;
 
-CALL UpdateTeamManager(1, 'New manager');
+CALL update_team_nanager(1, 'New manager');
 SELECT * FROM teams;
 
 -- procedure with transaction
 -- It's update player's position to 'Substitute' if player's age > 38
 DELIMITER //
 
-CREATE PROCEDURE UpdatePlayerPosition()
+CREATE PROCEDURE update_player_position()
 BEGIN
     START TRANSACTION;
 
@@ -100,7 +100,7 @@ END//
 
 DELIMITER ;
 
-CALL UpdatePlayerPosition();
+CALL update_player_position();
 
 SELECT * FROM players;
 
