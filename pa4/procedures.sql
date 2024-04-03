@@ -11,7 +11,6 @@ BEGIN
 END//
 
 DELIMITER ;
-CALL get_players_by_team_id_sproc(2);
 
 
 -- procedure with IN, OUT
@@ -30,8 +29,7 @@ BEGIN
 END //
 
 DELIMITER ;
-CALL get_player_goals_sproc('Virgil van Dijk', @total_goals);
-SELECT @total_goals;
+
 
 -- procedure with INOUT 
 -- This procedure updates player's number
@@ -46,9 +44,6 @@ BEGIN
     WHERE id = player_id;
 END//
 DELIMITER ;
-
-SET @player_id = 43;
-CALL update_player_number_sproc(@player_id, 15);
 
 
 -- procedure with transaction
@@ -76,8 +71,6 @@ END//
 
 DELIMITER ;
 
-CALL update_team_manager_sproc(1, 'New manager');
-SELECT * FROM teams;
 
 -- procedure with transaction
 -- It's update player's position to 'Substitute' if player's age > 38
@@ -100,8 +93,5 @@ END//
 
 DELIMITER ;
 
-CALL update_player_position_sproc();
-
-SELECT * FROM players;
 
 
