@@ -73,7 +73,7 @@ DELIMITER ;
 
 
 -- procedure with transaction
--- It's update player's position to 'Substitute' if player's age > 38
+-- It's update player's position to 'Substitute' if player's age > 36
 DELIMITER //
 
 CREATE PROCEDURE update_player_position_sproc()
