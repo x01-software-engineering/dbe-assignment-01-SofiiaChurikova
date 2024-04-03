@@ -2,23 +2,23 @@
 -- This procedure provides full information based on given team ID
 DELIMITER //
 
-CREATE PROCEDURE get_players_by_team_id(IN teamId INT)
+CREATE PROCEDURE get_players_by_team_id_sproc(IN id_team INT)
 BEGIN
     SELECT p.name, p.birthday, p.nationality, p.position, p.number
     FROM players p
     INNER JOIN team_player tp ON p.id = tp.player_id
-    WHERE tp.team_id = teamId;
+    WHERE tp.team_id = id_team;
 END//
 
 DELIMITER ;
-CALL get_players_by_team_id(2);
+CALL get_players_by_team_id_sproc(2);
 
 
 -- procedure with IN, OUT
 -- This procedure provides full information about goals based on given player
 DELIMITER //
 
-CREATE PROCEDURE get_player_goals(
+CREATE PROCEDURE get_player_goals_sproc(
     IN player_name VARCHAR(50),
     OUT total_goals INT
 )
@@ -30,13 +30,13 @@ BEGIN
 END //
 
 DELIMITER ;
-CALL get_player_goals('Virgil van Dijk', @total_goals);
+CALL get_player_goals_sproc('Virgil van Dijk', @total_goals);
 SELECT @total_goals;
 
 -- procedure with INOUT 
 -- This procedure updates player's number
 DELIMITER //
-CREATE PROCEDURE update_player_number(
+CREATE PROCEDURE update_player_number_sproc(
     INOUT player_id INT,
     IN new_number INT
 )
@@ -48,14 +48,14 @@ END//
 DELIMITER ;
 
 SET @player_id = 43;
-CALL update_player_number(@player_id, 15);
+CALL update_player_number_sproc(@player_id, 15);
 
 
 -- procedure with transaction
 -- It's update manager's name if team didn't score a goal, otherwise changes are cancelled 
 DELIMITER //
 
-CREATE PROCEDURE update_team_nanager(IN team_id INT, IN new_manager_name VARCHAR(255))
+CREATE PROCEDURE update_team_manager_sproc(IN team_id INT, IN new_manager_name VARCHAR(255))
 BEGIN
     DECLARE total_goals INT;
 
@@ -76,14 +76,14 @@ END//
 
 DELIMITER ;
 
-CALL update_team_nanager(1, 'New manager');
+CALL update_team_manager_sproc(1, 'New manager');
 SELECT * FROM teams;
 
 -- procedure with transaction
 -- It's update player's position to 'Substitute' if player's age > 38
 DELIMITER //
 
-CREATE PROCEDURE update_player_position()
+CREATE PROCEDURE update_player_position_sproc()
 BEGIN
     START TRANSACTION;
 
@@ -100,7 +100,7 @@ END//
 
 DELIMITER ;
 
-CALL update_player_position();
+CALL update_player_position_sproc();
 
 SELECT * FROM players;
 
