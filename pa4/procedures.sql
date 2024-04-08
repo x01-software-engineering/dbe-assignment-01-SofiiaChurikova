@@ -85,7 +85,7 @@ BEGIN
     WHERE id IN (
     SELECT id
     FROM (
-        SELECT *, YEAR(CURRENT_DATE()) - YEAR(birthday) AS age 
+        SELECT 1, YEAR(CURRENT_DATE()) - YEAR(birthday) AS age 
         FROM players
     ) AS p
     WHERE p.age > 36
