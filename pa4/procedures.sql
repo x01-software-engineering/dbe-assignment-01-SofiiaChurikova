@@ -22,7 +22,7 @@ CREATE PROCEDURE get_player_goals_sproc(
     OUT total_goals INT
 )
 BEGIN
-    SELECT COUNT(*) INTO total_goals
+    SELECT COUNT(1) INTO total_goals
     FROM goals g
     JOIN players p ON g.player = p.id
     WHERE p.name = player_name;
