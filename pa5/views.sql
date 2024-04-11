@@ -9,7 +9,7 @@ INNER JOIN match_day md ON g.game IN (SELECT id FROM matches WHERE match_day = m
 GROUP BY p.id, t.id
 ORDER BY player_name, team_name;
 
-select * from best_strikers;
+SELECT * FROM best_strikers;
 
 -- Create indexes to optimize search by view
 CREATE INDEX idx_goals_player_team ON goals(player, team);
