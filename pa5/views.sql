@@ -10,3 +10,10 @@ GROUP BY p.id, t.id
 ORDER BY player_name, team_name;
 
 select * from best_strikers;
+
+-- Create indexes to optimize search by view
+CREATE INDEX idx_goals_player_team ON goals(player, team);
+CREATE INDEX idx_matches_match_day ON matches(match_day);
+CREATE INDEX idx_match_day_day_number ON match_day(day_number);
+CREATE INDEX idx_players_id ON players(id);
+CREATE INDEX idx_teams_id ON teams(id);
