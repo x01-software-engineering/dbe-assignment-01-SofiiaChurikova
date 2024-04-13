@@ -1,0 +1,6 @@
+# MySQL
+*.sql
+*.dump
+*.sql.gz
+*.sql.xz
+*.sql.bz2
