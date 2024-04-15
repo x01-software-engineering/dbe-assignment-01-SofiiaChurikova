@@ -44,4 +44,7 @@ Folder `pa4`
 - *Transfer all project files*, including SQL scripts and folders (`pa1`, `pa2`, `pa3`, `pa4`), to your server or local environment.
 - *Execute Queries.* Use the provided SQL query files (`queries.sql`, `many_to_many_queries.sql`, `subqueries.sql`) to retrieve specific information from the db.
 - *Execute the* `bonus_index.sql` *script* provided in the pa2 folder to create indexes on certain columns.
-- *Execute Stored Procedures.* Run the `procedures.sql` script from the `pa4` folder to create stored procedures, and then execute them with appropriate parameters
+- *Execute Stored Procedures.* Run the `procedures.sql` script from the `pa4` folder to create stored procedures, and then execute them with appropriate parameters.
+
+## Database schema 
+![Снимок экрана 2024-04-15 в 10 09 13 PM](https://github.com/x01-software-engineering/dbe-assignment-01-SofiiaChurikova/assets/150338552/a1c96383-e40b-4b40-b81f-0bb92e6faf43)
