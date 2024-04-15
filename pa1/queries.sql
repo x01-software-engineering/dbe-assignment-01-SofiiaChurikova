@@ -1,6 +1,7 @@
 SELECT teams.name AS team, ROUND(AVG(YEAR(CURRENT_DATE) - YEAR((players.birthday))), 1) AS avg_age
 FROM players
-JOIN teams ON players.team = teams.id
+JOIN team_player ON players.id = team_player.player_id
+JOIN teams ON team_player.team_id = teams.id
 JOIN goals ON players.id = goals.player
 WHERE YEAR(CURRENT_DATE) - YEAR(players.birthday) < 29
 GROUP BY teams.name;
