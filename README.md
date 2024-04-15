@@ -1,11 +1,12 @@
 # MySQL Football League System Database
 
-This project focuses on managing a database schema for a football league system, including players, leagues, and other related entities. The project utilizes various queries, many-to-many relationships, subqueries, transactions, indexes, and views.
+This project focuses on managing a database schema for a football league system, including players, leagues, and other related entities. The project utilizes various queries, many-to-many relationships, subqueries, transactions, indexes and views.
 
 ## Schema Overview
 
 The database schema consists of several tables representing different entities within the football league system. Here's a brief overview of the main tables:
 1. **teams**: Information about football teams: name, city, stadium, manager name. Primary key is ID.
+  
 2. **players**: Information about players: name, birthday, nationality, position, number. Primary key is ID.
 3. **team_player**: Represents the many-to-many relationship between players and teams. Primary key is player's ID and team's ID. Foreign key team_id referencing the ID column in teams table. Foreign key player_id referencing the ID column in players table.
 4. **seasons**: Information about seasons: name. Primary key is ID.
@@ -34,3 +35,13 @@ Folder `pa3`
 Folder `pa4`
 1. **procedures.sql**: Creating stored procedures, which defined with parameters, including IN, OUT, and INOUT.
 2. **executions.sql**: This file demonstrates the execution of the stored procedures.
+
+## Usage
+- *Setup MySql Database Server*, if you don't have.
+  
+- *Connect to MySql and create a database.*
+- *Execute schema and population scripts.* They help to create the necessary tables, schema and populate the db.
+- *Transfer all project files*, including SQL scripts and folders (`pa1`, `pa2`, `pa3`, `pa4`), to your server or local environment.
+- *Execute Queries.* Use the provided SQL query files (`queries.sql`, `many_to_many_queries.sql`, `subqueries.sql`) to retrieve specific information from the db.
+- *Execute the* `bonus_index.sql` *script* provided in the pa2 folder to create indexes on certain columns.
+- *Execute Stored Procedures.* Run the `procedures.sql` script from the `pa4` folder to create stored procedures, and then execute them with appropriate parameters
