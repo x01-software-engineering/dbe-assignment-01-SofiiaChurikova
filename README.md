@@ -48,3 +48,8 @@ Folder `pa4`
 
 ## Database schema 
 ![Снимок экрана 2024-04-15 в 10 09 13 PM](https://github.com/x01-software-engineering/dbe-assignment-01-SofiiaChurikova/assets/150338552/a1c96383-e40b-4b40-b81f-0bb92e6faf43)
+
+
+## Info about author
+
+This project was made by the student of The Kyiv School Of Economics, Churikova Sofiia ITBA27.
