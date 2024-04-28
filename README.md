@@ -55,4 +55,4 @@ Folder `pa5`
 
 ## Info about author
 
-This project was made by the student of The Kyiv School Of Economics, Churikova Sofiia ITBA27.
+This project was made by the student of the Kyiv School of Economics, Churikova Sofiia ITBA27.
