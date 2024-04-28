@@ -36,6 +36,9 @@ Folder `pa4`
 1. **procedures.sql**: Creating stored procedures, which defined with parameters, including IN, OUT, and INOUT.
 2. **executions.sql**: This file demonstrates the execution of the stored procedures.
 
+Folder `pa5`
+1. **views.sql**: Create a view that stores info about the player, team, the num of scored goals, days and time of scored goals and create indexes to optimize search by view.
+
 ## Usage
 - *Setup MySql Database Server*, if you don't have.
   
@@ -45,7 +48,7 @@ Folder `pa4`
 - *Execute Queries.* Use the provided SQL query files (`queries.sql`, `many_to_many_queries.sql`, `subqueries.sql`) to retrieve specific information from the db.
 - *Execute the* `bonus_index.sql` *script* provided in the `pa2` folder to create indexes on certain columns.
 - *Execute Stored Procedures.* Run the `procedures.sql` script from the `pa4` folder to create stored procedures, and then execute them with appropriate parameters.
-
+- *Execute Views*. Run the `views.sql` script from the `pa5` folder to create views.
 ## Database schema 
 ![Снимок экрана 2024-04-15 в 10 09 13 PM](https://github.com/x01-software-engineering/dbe-assignment-01-SofiiaChurikova/assets/150338552/a1c96383-e40b-4b40-b81f-0bb92e6faf43)
 
